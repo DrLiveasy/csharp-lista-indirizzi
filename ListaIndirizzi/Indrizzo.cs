@@ -128,5 +128,12 @@ namespace ListaIndirizzi
             }
         }
         #endregion
+
+        #region Metodi
+        public override string ToString()
+        {
+            return "Nome: " + this.Name + "\tCognome: " + this.Surname + "\nIndrizzo: " + this.Street + ", " +this.City + ", " + this.Province + ", " + this.Zip;
+        }
+        #endregion
     }
 }
