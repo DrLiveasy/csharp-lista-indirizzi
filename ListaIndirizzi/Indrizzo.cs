@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace ListaIndirizzi
 {
@@ -19,14 +20,14 @@ namespace ListaIndirizzi
         #endregion
 
         #region Costruttori
-        public Indrizzo(string name, string surname, string street, string city, string province, int zip)
+        public Indrizzo(string Name, string Surname, string Street, string City, string Province, int Zip)
         {
-            this.Name = name;
-            this.Surname = surname;
-            this.Street = street;
-            this.City = city;
-            this.Province = province;
-            this.Zip = zip;
+            ControllaInputStringhe(this.Name, Name);
+            ControllaInputStringhe(this.Surname, Surname);
+            ControllaInputStringhe(this.Street, Street);
+            ControllaInputStringhe(this.City, City);
+            ControllaInputStringhe(this.Province, Province);
+            ControllaInputInteri(this.Zip, Zip);
         }
 
         #endregion
@@ -134,6 +135,32 @@ namespace ListaIndirizzi
         {
             return "Nome: " + this.Name + "\tCognome: " + this.Surname + "\nIndrizzo: " + this.Street + ", " +this.City + ", " + this.Province + ", " + this.Zip;
         }
+
+        private void ControllaInputStringhe(string porprieta, string value)
+        {
+            if (value == null)
+            {
+                porprieta = "questo cambo non è Nullo";
+            }
+            else
+            {
+                porprieta = value;
+            }
+        }
+        private void ControllaInputInteri(int porprieta, int value)
+        {
+            if (value == null)
+            {
+                porprieta = 0;
+            }
+            else
+            {
+                porprieta = value;
+            }
+        }
+
+
         #endregion
+
     }
 }
