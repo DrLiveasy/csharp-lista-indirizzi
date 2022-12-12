@@ -15,7 +15,7 @@ try
         string riga = file.ReadLine();
 
 
-        string[] informazioniIndrizzo = riga.Split(", ");
+        string[] informazioniIndrizzo = riga.Split(",");
 
         string Name = informazioniIndrizzo[0];
         string Surname = informazioniIndrizzo[1];
@@ -27,7 +27,7 @@ try
 
         Indrizzo IndrizzoEstratto = new Indrizzo(Name, Surname, Street, City, Province, Zip);
         listaIndrizzi.Add(IndrizzoEstratto);
-        // Console.WriteLine(riga);
+        //Console.WriteLine(riga);
     }
 
     file.Close();
@@ -40,5 +40,7 @@ catch (Exception e)
 
 foreach (Indrizzo indrizzo in listaIndrizzi)
 {
+    Console.WriteLine("------------------------");
     Console.WriteLine(indrizzo);
+    Console.WriteLine("------------------------\n");
 }
