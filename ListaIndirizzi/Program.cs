@@ -13,21 +13,22 @@ try
     while (!file.EndOfStream)
     {
         string riga = file.ReadLine();
-
+        
 
         string[] informazioniIndrizzo = riga.Split(",");
+    if (informazioniIndrizzo.Length >= 6)
+        {
+            string Name = informazioniIndrizzo[0];
+            string Surname = informazioniIndrizzo[1];
+            string Street = informazioniIndrizzo[2];
+            string City = informazioniIndrizzo[3];
+            string Province = informazioniIndrizzo[4];
+            string Zip = informazioniIndrizzo[5];
 
-        string Name = informazioniIndrizzo[0];
-        string Surname = informazioniIndrizzo[1];
-        string Street = informazioniIndrizzo[2];
-        string City = informazioniIndrizzo[3];
-        string Province = informazioniIndrizzo[4];
-        int Zip = Convert.ToInt32(informazioniIndrizzo[5]);
 
-
-        Indrizzo IndrizzoEstratto = new Indrizzo(Name, Surname, Street, City, Province, Zip);
-        listaIndrizzi.Add(IndrizzoEstratto);
-        //Console.WriteLine(riga);
+            Indrizzo IndrizzoEstratto = new Indrizzo(Name, Surname, Street, City, Province, Zip);
+            listaIndrizzi.Add(IndrizzoEstratto);
+        }
     }
 
     file.Close();

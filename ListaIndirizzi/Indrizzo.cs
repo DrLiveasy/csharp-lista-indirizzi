@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,18 +17,18 @@ namespace ListaIndirizzi
         private string Street;
         private string City;
         private string Province;
-        private int Zip;
+        private string Zip;
         #endregion
 
         #region Costruttori
-        public Indrizzo(string Name, string Surname, string Street, string City, string Province, int Zip)
-        {
-            ControllaInputStringhe(this.Name, Name);
-            ControllaInputStringhe(this.Surname, Surname);
-            ControllaInputStringhe(this.Street, Street);
-            ControllaInputStringhe(this.City, City);
-            ControllaInputStringhe(this.Province, Province);
-            ControllaInputInteri(this.Zip, Zip);
+        public Indrizzo(string Name, string Surname, string Street, string City, string Province, string Zip)
+        { 
+            this.Name = Name;
+            this.Surname = Surname;
+            this.Street = Street;
+            this.City = City;
+            this.Province = Province;
+            this.Zip = Zip;
         }
 
         #endregion
@@ -58,7 +59,7 @@ namespace ListaIndirizzi
             return Province;
         }
 
-        public int GetZip1()
+        public string GetZip1()
         {
             return Zip;
         }
@@ -113,13 +114,13 @@ namespace ListaIndirizzi
             }
         }
 
-        public void SetZip1(int value)
+        public void SetZip1(string value)
         {
             while (true)
             {
-                if (value <= 0)
+                if (value == "")
                 {
-                    Console.WriteLine("IL zip non può essere minore o uguale a 0");
+                    Console.WriteLine("Questo cambo non può essere vuoto");
                 }
                 else
                 {
@@ -133,32 +134,8 @@ namespace ListaIndirizzi
         #region Metodi
         public override string ToString()
         {
-            return "Nome: " + this.Name + "\tCognome: " + this.Surname + "\nIndrizzo: " + this.Street + ", " +this.City + ", " + this.Province + ", " + this.Zip;
+            return "Nome: " + this.Name + "\tCognome: " + this.Surname + "\nIndrizzo: " + this.Street + ", " + this.City + ", " + this.Province + ", " + this.Zip;
         }
-
-        private void ControllaInputStringhe(string porprieta, string value)
-        {
-            if (value == null)
-            {
-                porprieta = "questo cambo non è Nullo";
-            }
-            else
-            {
-                porprieta = value;
-            }
-        }
-        private void ControllaInputInteri(int porprieta, int value)
-        {
-            if (value == null)
-            {
-                porprieta = 0;
-            }
-            else
-            {
-                porprieta = value;
-            }
-        }
-
 
         #endregion
 
